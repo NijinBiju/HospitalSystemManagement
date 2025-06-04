@@ -1,89 +1,322 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Infinity Care Hospital</title>
+  <link href="style.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-default.css" crossorigin="anonymous" />
+</head>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/11.6.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/11.6.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+<body>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+  <!-- Header -->
+  <header>
+    <div class="container-fluid p-3 d-flex justify-content-between align-items-center">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <div class="image">
+          <img src="/images/logo.png" alt="Logo" width="100" />
+        </div>
+        <div class="logo-text">
+          <img src="/images/Logotext.png" alt="Logo" width="180" />
+        </div>
+      </a>
+      <div class="d-flex gap-4 align-items-center">
+        <div class="d-flex align-items-center">
+          <img src="/images/Call.png" alt="Phone Icon" width="20" class="me-2" />
+          <div>
+            <small>EMERGENCY</small><br />
+            <a href="tel:+919876543210">+91-9876543210</a>
+          </div>
+        </div>
+        <div class="d-flex align-items-center">
+          <img src="/images/Email.png" alt="Email Icon" width="20" class="me-3" />
+          <div>
+            <small>EMAIL</small><br />
+            <a href="mailto:info@infinitycarehospitals.com">info@infinitycarehospitals.com</a>
+          </div>
+        </div>
+        <div class="d-flex align-items-center location-section">
+          <img src="/images/Location.png" alt="Location Icon" width="20" class="me-4" />
+          <div>
+            <small>LOCATION</small><br />
+            Bangalore
+          </div>
+        </div>
+      </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <!-- Navbar -->
+   
+    <nav class="navbar navbar-expand-lg" style="background-color: #1c2a69;">
+      <div class="container-fluid d-flex justify-content-center">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link text-white" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="department.html">Departments</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="doctor.html">Doctor</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>  
+          <li class="nav-item"><a class="nav-link text-white" href="patient.html">Record</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="profile.html">Profile</a></li>
+        </ul>
+      </div>
+        <ul class="navbar-nav mb-2 mb-lg-0 d-flex gap-4">
+          <!-- Dropdown for Login/Sign Up -->
+          <!-- Login/Signup Dropdown -->
+<li class="nav-item dropdown" id="login-dropdown">
+  <a class="nav-link dropdown-toggle text-white" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Login/signup
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
+    <li><a class="dropdown-item" href="signup.html">User Login</a></li> 
+    <li><a class="dropdown-item" href="doctor-login.html">Doctor Login</a></li>
+    <li><a class="dropdown-item" href="adminLogin.html">Admin Login</a> </li>
+  </ul>
+</li>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+<!-- Placeholder for Logout Button -->
+<li class="nav-item d-none" id="logout-nav-item">
+  <a class="nav-link text-white" href="#" id="logout-btn">Logout</a>
+</li>
+
+          <!-- User/Doctor logged-in info (will be displayed dynamically based on auth) -->
+    
+        </ul>
+      </div>
+    </nav>
+    
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero-container">
+<div class="offers-marquee">
+    <div class="offers-content" id="offersContent">
+      Loading offers...
+    </div>
+  </div>
+  <div class="hero-image-slider" id="heroSlider">.
+  
+  <!-- Offers Marquee here -->
+  
+
+  <div class="text">
+    <p></p>
+  </div>
+  </div>
+
+  <button class="appointment-button" onclick="window.location.href='appointment.html'">Appointment</button>
+</div>
+
+
+  <!-- Services -->
+  <div class="service-container">
+    <div class="service-card">
+      <img src="/images/fertility.png" alt="Fertility Care" />
+      <h3>Fertility Care</h3>
+      <p>Comprehensive infertility treatments, including IVF and ICSI, to achieve parenthood.</p>
+      <a href="department.html" class="read-more">Read More</a>
+    </div>
+    <div class="service-card">
+      <img src="/images/Obstetrics.png" alt="Obstetrics & Gynaecology" />
+      <h3>Obstetrics & Gynaecology</h3>
+      <p>Expert care in pregnancy, childbirth, and women's reproductive health.</p>
+      <a href="department.html" class="read-more">Read More</a>
+    </div>
+    <div class="service-card">
+      <img src="/images/Gynec.png" alt="Gynec Laparoscopy" />
+      <h3>Gynec Laparoscopy</h3>
+      <p>Minimally invasive surgical solutions for faster recovery and less pain.</p>
+      <a href="department.html" class="read-more">Read More</a>
+    </div>
+  </div>
+
+  <!-- Team -->
+  <div class="team-section text-center">
+    <h2>Our Experienced Team</h2>
+    <div class="team-container">
+        <div class="team-member">
+            <img src="/images/Dr.1.jpg" alt="Dr. ABC">
+            <p>Dr.Rajesh</p>
+        </div>
+        <div class="team-member">
+            <img src="/images/Dr.2.jpg" alt="Dr. XYZ">
+            <p>Dr.Ryan Thompson</p>
+        </div>
+        <div class="team-member">
+            <img src="/images/Dr.3.jpg" alt="Dr. DEF">
+            <p>Dr.logan John</p>
+        </div>
+        <div class="team-member">
+            <img src="/images/Dr.4.jpg" alt="Dr. GHI">
+            <p>Dr.Jackson lee</p>
+        </div>  
+    </div>
+    <a href="doctor.html" class="view-more-btn">View More</a>
+</div>
+
+  <!-- Stats -->
+  <div class="stats-section">
+    <div class="stats-container">
+      <div class="stats-card">
+        <img src="/images/bed.png" alt="Bed Icon" class="stats-icon" /><br />
+        <div class="bed-odometer odometer plus">0</div>
+        <p>Beds</p>
+      </div>
+      <div class="stats-card">
+        <img src="/images/experience.png" alt="Experience Icon" class="stats-icon" /><br />
+        <div class="experience-odometer odometer plus">0</div>
+        <p>Years of Experience</p>
+      </div>
+      <div class="stats-card">
+        <img src="/images/happy.png" alt="Happy Patients" class="stats-icon" /><br />
+        <div class="happy-odometer odometer plus">0</div>
+        <p>Happy Patients</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Insurance -->
+  <div class="team-section text-center">
+    <h2>Our Insurances</h2>
+    <div class="insurance-container">
+      <img src="/images/SBI.png" alt="SBI" />
+      <img src="/images/hdfc.png" alt="HDFC" />
+      <img src="/images/federal.png" alt="Federal" />
+      <img src="/images/SIB.png" alt="SIB" />
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="/images/logo.png" alt="Infinity Care Logo" class="logo-img" />
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p>Infinity Care, 204 2nd Block, Kannuru, Bangalore</p>
+        <p>Karnataka 560077</p>
+        <p>📞 +91 4734 219500</p>
+        <p>✉️ info@lifelinehospitalkerala.com</p>
+      </div>
+      <div class="footer-Shortcuts">
+        <h5><a href="home.html">Home</a></h5>
+        <h5><a href="about.html">About Us</a></h5>
+        <h5><a href="department.html">Departments</a></h5>
+        <h5><a href="doctor.html">Doctor</a></h5>
+        <h5><a href="contact.html">Contact</a></h5>
+        <h5><a href="patient.html">Record</a></h5>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script type="module">
+  // Import Firebase modules
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+
+  // Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyA33Px0Y-ThP9Wv7MO68sWg4FaMP_Z89ZA",
+    authDomain: "hospital-management-203c5.firebaseapp.com",
+    projectId: "hospital-management-203c5",
+    storageBucket: "hospital-management-203c5.appspot.com",
+    messagingSenderId: "45154128779",
+    appId: "1:45154128779:web:bfcd7f5f00cea5d0c6d58e"
+  };
+
+  // Initialize Firebase app and Firestore
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // ---------------- Hero Slider ----------------
+  const images = [
+    '/images/Doctor11.png',
+    '/images/Doctor22.png',
+    '/images/Doctor33.png',
+  ];
+  const texts = [
+    "Healing with Heart<br>Leading with Excellence",
+    "Where every heartbeat<br>matters, and every life is valued",
+    "Healing happens with care,<br>kindness, and a reassuring smile"
+  ];
+  const textColors = ['#ffffff', '#ffffff', '#1c2a69'];
+  let sliderIndex = 0;
+
+  function updateHeroSlider() {
+    const slider = document.getElementById('heroSlider');
+    const textElement = document.querySelector('.hero-container .text p');
+
+    if (slider && textElement) {
+      slider.style.backgroundImage = `url('${images[sliderIndex]}')`;
+      textElement.innerHTML = texts[sliderIndex];
+      textElement.style.color = textColors[sliderIndex];
+
+      sliderIndex = (sliderIndex + 1) % images.length;
+    }
+  }
+
+  // ---------------- Load Offers ----------------
+  async function loadOffers() {
+    const offersContainer = document.getElementById('offersContent');
+    if (!offersContainer) return;
+
+    offersContainer.innerHTML = 'Loading offers...';
+
+    try {
+      const querySnapshot = await getDocs(collection(db, "offers"));
+      const offersList = [];
+
+      querySnapshot.forEach(doc => {
+        const data = doc.data();
+        if (data.text && data.text.trim()) {
+          offersList.push(data.text.trim());
         }
       });
-    </script>
-  </body>
+
+      offersContainer.innerHTML = offersList.length > 0
+        ? offersList.join(" &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; ")
+        : "No offers available currently.";
+
+    } catch (error) {
+      console.error("Error fetching offers:", error);
+      offersContainer.innerHTML = "Failed to load offers.";
+    }
+  }
+
+  // ---------------- Animate Odometers ----------------
+  function animateOdometers() {
+    const bedOdometer = document.querySelector(".bed-odometer");
+    const experienceOdometer = document.querySelector(".experience-odometer");
+    const happyOdometer = document.querySelector(".happy-odometer");
+
+    if (bedOdometer) bedOdometer.innerHTML = 0;
+    if (experienceOdometer) experienceOdometer.innerHTML = 0;
+    if (happyOdometer) happyOdometer.innerHTML = 0;
+
+    setTimeout(() => {
+      if (bedOdometer) bedOdometer.innerHTML = 500;
+      if (experienceOdometer) experienceOdometer.innerHTML = 26;
+      if (happyOdometer) happyOdometer.innerHTML = 10000;
+    }, 500); // Delay triggers odometer animation
+  }
+
+  // ---------------- Init Everything on Page Load ----------------
+  window.addEventListener('DOMContentLoaded', () => {
+    updateHeroSlider();
+    setInterval(updateHeroSlider, 5000);
+    loadOffers();
+    animateOdometers();
+  });
+</script>
+
+
+
+
+
+</body>
 </html>
